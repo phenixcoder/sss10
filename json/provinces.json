@@ -1,0 +1,54 @@
+[
+	{
+		"symbol": "AB",
+		"value": "AB - Alberta"
+	},
+	{
+		"symbol": "BC",
+		"value": "BC - British Columbia"
+	},
+	{
+		"symbol": "MB",
+		"value": "MB - Manitoba"
+	},
+	{
+		"symbol": "NB",
+		"value": "NB - New Brunswick"
+	},
+	{
+		"symbol": "NL",
+		"value": "NL - Newfoundland and Labrador"
+	},
+	{
+		"symbol": "NS",
+		"value": "NS - Nova Scotia"
+	},
+	{
+		"symbol": "NT",
+		"value": "NT - Northwest Territories"
+	},
+	{
+		"symbol": "NU",
+		"value": "NU - Nunavut"
+	},
+	{
+		"symbol": "ON",
+		"value": "ON - Ontario"
+	},
+	{
+		"symbol": "PE",
+		"value": "PE - Prince Edward Island"
+	},
+	{
+		"symbol": "QC",
+		"value": "QC - Quebec"
+	},
+	{
+		"symbol": "SK",
+		"value": "SK - Saskatchewan"
+	},
+	{
+		"symbol": "YT",
+		"value": "YT - Yukon"
+	}
+]

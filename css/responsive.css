@@ -1,0 +1,6 @@
+@media all and (max-width: 800px) {
+  .row-fluid .span5, .row-fluid .span2, .row-fluid .span4{
+	  width: 100%;
+	  margin-left: 0;
+  }
+}

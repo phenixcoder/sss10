@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-modal.min.css" />
+        <link rel="stylesheet" type="text/css" href="../../css/cisc.css" />
+        
+        <title>Steel Seismic Systems 10</title>
+    </head>
+    <body>
+	    <div class="stage">
+            <div class="header">
+              <div class="row-fluid">
+                <div class="span5"><img src="../../img/logo.svg" class="headerlogo"></div>
+                <div class="span7">
+                  <h2>STEEL SEISMIC SYSTEMS 10</h2>
+        <h3>Permissible Structural Steel Seismic-Force-Resisting Systems in accordance with NBC 2010 and CSA S16-09</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="content">
+                <div class="row-fluid">
+                    <h4>Project Information and Seismic Data</h4>
+
+                    <div class="span6 leftspan">
+                        <table id="table1" class="table table-bordered white">
+                            <tbody>
+                                <tr>
+                                    <td width="40%">Location</td>
+                                    <td data-bind="visible: !session.isUserSpecified()">
+                                        <span data-bind="text: session.location.City"></span>, <span data-bind="text: session.province.value"></span>
+                                    </td>
+                                    <td data-bind="visible: session.isUserSpecified">
+                                        <span>User  specified accelerations</span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Importance Category</td>
+                                    <td data-bind="text: session.importanceCategory['Importance Category']"></td>
+                                </tr>
+                                <tr>
+                                    <td>Site Class</td>
+                                    <td data-bind="text: siteClass"></td>
+                                </tr>
+                                 <tr>
+                                    <td>Building Height</td>
+                                    <td data-bind="text: hght"></td>
+                                </tr>
+                                <tr>
+                                    <td>S<sub>a</sub> (0.2)</td>
+                                    <td data-bind="text: session.location.Sa02"></td>
+                                </tr>
+                                <tr>
+                                    <td>S<sub>a</sub> (1.0)</td>
+                                    <td data-bind="text: session.location.Sa10"></td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="span6">
+                        <table id ="table2" class="table table-bordered white">
+                            <tbody>
+                            	<tr>
+                                    <td width="40%">I<sub>e</sub></td>
+                                    <td data-bind="text: round(ie)"></td>
+                                </tr>
+                            	<tr>
+                                    <td>F<sub>a</sub></td>
+                                    <td data-bind="text: round(fa)"></td>
+                                </tr>
+                                <tr>
+                                    <td>F<sub>v</sub></td>
+                                    <td data-bind="text: round(fv)"></td>
+                                </tr>
+                               
+                                <tr>
+                                    <td>I<sub>E</sub>F<sub>a</sub>S<sub>a</sub> (0.2)</td>
+                                    <td data-bind="text: round(iefasa02)"></td>
+                                </tr>
+                                <tr>
+                                    <td>I<sub>E</sub>F<sub>v</sub>S<sub>a</sub> (0.2)</td>
+                                    <td data-bind="text: round(iefvsa10)"></td>
+                                </tr>
+                           
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="row-fluid" data-bind="visible: needsConsideration()">
+                    <table class="table table-bordered white">
+                        <tr>
+                            <td>
+                                <span><strong>S<sub>a</sub>(0.2) is less than or equal to 0.12, earthquake loads and effects need not be considered.</strong></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="row-fluid" data-bind="visible: !needsConsideration()">
+                    <h4>Project Information and Seismic Data</h4>
+
+                    <table id="table3" class="table table-bordered white">
+                        <thead>
+                            <th width="50%">Braced Frames</th>
+                            <th width="10%">R<sub>d</sub></th>
+                            <th width="10%">R<sub>o</sub></th>
+                            <th width="30%">Max Height Limit (m)</th>
+                        </thead>
+                        
+                        <tbody data-bind="foreach: struct_data">
+                            <!-- ko if: RowNum >= 4 && RowNum <= 9 -->
+                            <tr data-bind="visible: isRowVisible(heightLimit)">
+                                <td data-bind ="text: StructuralSystem"></td>
+                                <td data-bind ="text: round(Rd)"></td>
+                                <td data-bind ="text: round(Ro)"></td>
+                                <td data-bind ="text: heightLimit"></td>
+                            </tr>
+                            <!-- /ko -->
+                            <!-- ko if: RowNum == 4 -->
+                            <tr data-bind="visible: !isRowVisible(heightLimit)">
+                                <td>Not Permitted</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <!-- /ko -->
+                        </tbody>
+                    </table>
+
+                    <table class="table table-bordered white">
+                        <thead>
+                            <th width="50%">Moment-resisting Frames</th>
+                            <th width="10%">R<sub>d</sub></th>
+                            <th width="10%">R<sub>o</sub></th>
+                            <th width="30%">Max Height Limit (m)</th>
+                        </thead>
+                        
+                        <tbody data-bind="foreach: struct_data">
+                            <!-- ko if: RowNum >= 1 && RowNum <= 3 -->
+                            <tr data-bind="visible: isRowVisible(heightLimit)">
+                                <td data-bind ="text: StructuralSystem"></td>
+                                <td data-bind ="text: round(Rd)"></td>
+                                <td data-bind ="text: round(Ro)"></td>
+                                <td data-bind ="text: heightLimit"></td>
+                            </tr>
+                            <!-- /ko -->
+                            <!-- ko if: RowNum == 1 -->
+                            <tr data-bind="visible: !isRowVisible(heightLimit)">
+                                <td>Not Permitted</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <!-- /ko -->
+                        </tbody>
+                    </table>
+
+                    <table class="table table-bordered white">
+                        <thead>
+                            <th width="50%">Plate Walls</th>
+                            <th width="10%">R<sub>d</sub></th>
+                            <th width="10%">R<sub>o</sub></th>
+                            <th width="30%">Max Height Limit (m)</th>
+                        </thead>
+                        
+                        <tbody data-bind="foreach: struct_data">
+                            <!-- ko if: RowNum >= 10 && RowNum <= 11 -->
+                            <tr data-bind="visible: isRowVisible(heightLimit)">
+                                <td data-bind ="text: StructuralSystem"></td>
+                                <td data-bind ="text: round(Rd)"></td>
+                                <td data-bind ="text: round(Ro)"></td>
+                                <td data-bind ="text: heightLimit"></td>
+                            </tr>
+                            <!-- /ko -->
+                            <!-- ko if: RowNum == 10 -->
+                            <tr data-bind="visible: !isRowVisible(heightLimit)">
+                                <td>Not Permitted</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <!-- /ko -->
+                        </tbody>
+                    </table>
+
+                    <table class="table table-bordered white">
+                        <thead>
+                            <th width="50%">Conventional Construction</th>
+                            <th width="10%">R<sub>d</sub></th>
+                            <th width="10%">R<sub>o</sub></th>
+                            <th width="30%">Max Height Limit (m)</th>
+                        </thead>
+                        
+                        <tbody data-bind="foreach: struct_data">
+                            <!-- ko if: RowNum >= 12 && RowNum <= 13 -->
+                            <tr data-bind="visible: isRowVisible(heightLimit)">
+                                <td data-bind ="text: StructuralSystem"></td>
+                                <td data-bind ="text: round(Rd)"></td>
+                                <td data-bind ="text: round(Ro)"></td>
+                                <td data-bind ="text: heightLimit"></td>
+                            </tr>
+                            <!-- /ko -->
+                            <!-- ko if: RowNum == 12 -->
+                            <tr data-bind="visible: !isRowVisible(heightLimit)">
+                                <td>Not Permitted</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <!-- /ko -->
+                        </tbody>
+                    </table>
+
+                    <table class="table table-bordered white">
+                        <thead>
+                            <th width="50%">Other</th>
+                            <th width="10%">R<sub>d</sub></th>
+                            <th width="10%">R<sub>o</sub></th>
+                            <th width="30%">Max Height Limit (m)</th>
+                        </thead>
+                        
+                        <tbody data-bind="foreach: struct_data">
+                            <!-- ko if: RowNum == 14 -->
+                            <tr data-bind="visible: isRowVisible(heightLimit)">
+                                <td data-bind ="text: StructuralSystem"></td>
+                                <td data-bind ="text: round(Rd)"></td>
+                                <td data-bind ="text: round(Ro)"></td>
+                                <td data-bind ="text: heightLimit"></td>
+                            </tr>
+                            <tr data-bind="visible: !isRowVisible(heightLimit)">
+                                <td>Not Permitted</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <!-- /ko -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="push"></div>
+            </div>
+
+
+
+
+            <div id="div-footer-with-save" class="footer hidden">
+              <div class="stage">
+                <div class="row-fluid">
+                    <a id="a-save" class="button blue span4">Save this Output</a>
+                    <a href="javascript:history.back()" class="button grey span3">Return</a>
+                    <a href="../info.html" class="button grey span2">?</a>
+                    <a href="../landing.html" class="button grey span3">Home</a> 
+                </div>
+              </div>
+            </div>
+
+            <div id="div-footer-with-output" class="footer hidden">
+              <div class="stage">
+                <div class="row-fluid">
+                    <a href="../saved/index.html" class="button blue span7">Saved Outputs</a>
+                    <a href="../info.html" class="button grey span2">?</a>
+                    <a href="../landing.html" class="button grey span3">Home</a> 
+                </div>
+              </div>
+            </div>
+
+            <div id="div-footer-with-email" class="footer hidden">
+              <div class="stage">
+                <div class="row-fluid">
+                    <a id="a-email" class="button blue span7">Email</a>
+                    <a href="../info.html" class="button grey span2">?</a>
+                    <a href="../landing.html" class="button grey span3">Home</a> 
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div id="modal-output" class="modal hidden">
+          <div class="modal-header">
+            <strong>Name this Output</strong>
+          </div>
+          <div class="modal-body">
+            <label>Output Name</label>
+            <input type="text" data-bind="value: outputName" placeholder="Output Name" />
+          </div>
+          <div class="modal-footer">
+            <a id="a-save-confirm" class="button blue span3" data-bind="click: save">Save</a>
+          </div>
+        </div>
+
+        <div id="div-fakeContent" class="hidden">
+
+            <div class="row-fluid">
+                <h4>Project Information and Seismic Data</h4>
+
+                <div class="span6 leftspan">
+                    <table border="1">
+                        <tbody>
+                            <tr data-bind="visible: !session.isUserSpecified()">
+                                <td>Location</td>
+                                <td>
+                                    <span data-bind="text: session.location.City"></span>, <span data-bind="text: session.province.value"></span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Importance Category</td>
+                                <td data-bind="text: session.importanceCategory['Importance Category']"></td>
+                            </tr>
+                            <tr>
+                                <td>Site Class</td>
+                                <td data-bind="text: siteClass"></td>
+                            </tr>
+                             <tr>
+                                <td>Building Height</td>
+                                <td data-bind="text: hght"></td>
+                            </tr>
+                            <tr>
+                                <td>S<sub>a</sub> (0.2)</td>
+                                <td data-bind="text: session.location.Sa02"></td>
+                            </tr>
+                            <tr>
+                                <td>S<sub>a</sub> (1.0)</td>
+                                <td data-bind="text: session.location.Sa10"></td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="span6">
+                    <table border="1">
+                        <tbody>
+                            <tr>
+                                <td width="40%">I<sub>e</sub></td>
+                                <td data-bind="text: round(ie)"></td>
+                            </tr>
+                            <tr>
+                                <td>F<sub>a</sub></td>
+                                <td data-bind="text: round(fa)"></td>
+                            </tr>
+                            <tr>
+                                <td>F<sub>v</sub></td>
+                                <td data-bind="text: round(fv)"></td>
+                            </tr>
+                           
+                            <tr>
+                                <td>I<sub>E</sub>F<sub>a</sub>S<sub>a</sub> (0.2)</td>
+                                <td data-bind="text: round(iefasa02)"></td>
+                            </tr>
+                            <tr>
+                                <td>I<sub>E</sub>F<sub>v</sub>S<sub>a</sub> (0.2)</td>
+                                <td data-bind="text: round(iefvsa10)"></td>
+                            </tr>
+                       
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row-fluid" data-bind="visible: needsConsideration()">
+                <span><strong>S<sub>a</sub>(0.2) is less than or equal to 0.12, earthquake loads and effects need not be considered.</strong></span>
+            </div>
+
+            <div class="row-fluid" data-bind="visible: !needsConsideration()">
+                <h4>Project Information and Seismic Data</h4>
+
+                <table border="1">
+                    <thead>
+                        <th width="50%">Braced Frames</th>
+                        <th width="10%">R<sub>d</sub></th>
+                        <th width="10%">R<sub>o</sub></th>
+                        <th width="30%">Max Height Limit (m)</th>
+                    </thead>
+                    
+                    <tbody data-bind="foreach: struct_data">
+                        <!-- ko if: RowNum >= 4 && RowNum <= 9 -->
+                        <tr>
+                            <td data-bind ="text: StructuralSystem"></td>
+                            <td data-bind ="text: round(Rd)"></td>
+                            <td data-bind ="text: round(Ro)"></td>
+                            <td data-bind ="text: heightLimit"></td>
+                        </tr>
+                        <!-- /ko -->
+                    </tbody>
+                </table>
+
+                <table border="1">
+                    <thead>
+                        <th width="50%">Moment-resisting Frames</th>
+                        <th width="10%">R<sub>d</sub></th>
+                        <th width="10%">R<sub>o</sub></th>
+                        <th width="30%">Max Height Limit (m)</th>
+                    </thead>
+                    
+                    <tbody data-bind="foreach: struct_data">
+                        <!-- ko if: RowNum >= 1 && RowNum <= 3 -->
+                        <tr>
+                            <td data-bind ="text: StructuralSystem"></td>
+                            <td data-bind ="text: round(Rd)"></td>
+                            <td data-bind ="text: round(Ro)"></td>
+                            <td data-bind ="text: heightLimit"></td>
+                        </tr>
+                        <!-- /ko -->
+                    </tbody>
+                </table>
+
+                <table border="1">
+                    <thead>
+                        <th width="50%">Plate Walls</th>
+                        <th width="10%">R<sub>d</sub></th>
+                        <th width="10%">R<sub>o</sub></th>
+                        <th width="30%">Max Height Limit (m)</th>
+                    </thead>
+                    
+                    <tbody data-bind="foreach: struct_data">
+                        <!-- ko if: RowNum >= 10 && RowNum <= 11 -->
+                        <tr>
+                            <td data-bind ="text: StructuralSystem"></td>
+                            <td data-bind ="text: round(Rd)"></td>
+                            <td data-bind ="text: round(Ro)"></td>
+                            <td data-bind ="text: heightLimit"></td>
+                        </tr>
+                        <!-- /ko -->
+                    </tbody>
+                </table>
+
+                <table border="1">
+                    <thead>
+                        <th width="50%">Conventional Construction</th>
+                        <th width="10%">R<sub>d</sub></th>
+                        <th width="10%">R<sub>o</sub></th>
+                        <th width="30%">Max Height Limit (m)</th>
+                    </thead>
+                    
+                    <tbody data-bind="foreach: struct_data">
+                        <!-- ko if: RowNum >= 12 && RowNum <= 13 -->
+                        <tr>
+                            <td data-bind ="text: StructuralSystem"></td>
+                            <td data-bind ="text: round(Rd)"></td>
+                            <td data-bind ="text: round(Ro)"></td>
+                            <td data-bind ="text: heightLimit"></td>
+                        </tr>
+                        <!-- /ko -->
+                    </tbody>
+                </table>
+
+                <table border="1">
+                    <thead>
+                        <th width="50%">Other</th>
+                        <th width="10%">R<sub>d</sub></th>
+                        <th width="10%">R<sub>o</sub></th>
+                        <th width="30%">Max Height Limit (m)</th>
+                    </thead>
+                    
+                    <tbody data-bind="foreach: struct_data">
+                        <!-- ko if: RowNum == 14 -->
+                        <tr>
+                            <td data-bind ="text: StructuralSystem"></td>
+                            <td data-bind ="text: round(Rd)"></td>
+                            <td data-bind ="text: round(Ro)"></td>
+                            <td data-bind ="text: heightLimit"></td>
+                        </tr>
+                        <!-- /ko -->
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <script type="text/javascript" src="../../../cordova.js"></script>
+        <script type="text/javascript" src="../../js/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="../../js/knockout-3.1.0"></script>
+        <script type="text/javascript" src="../../js/knockout.mapping-latest.js"></script>
+        <script type="text/javascript" src="../../js/fileio.js"></script>
+        <script type="text/javascript" src="../../js/nav.js"></script>
+        <script type="text/javascript" src="../../js/bootstrap-modal.min.js"></script>
+        <script type="text/javascript" src="../../js/screen2viewmodel.js"></script>
+        <script type="text/javascript" src="../../js/outputviewmodel.js"></script>
+        <script type="text/javascript" src="../../js/screen2.js"></script>
+        <script type="text/javascript" src="../../js/formulas.js"></script>
+    </body>
+</html>
