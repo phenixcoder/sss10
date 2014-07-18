@@ -1,0 +1,459 @@
+/* ------------------------------------------ Bootstrap ------------------------------------------ */
+
+@import url('bootstrap.css');
+
+
+/* ------------------------------------------ Framework ------------------------------------------ */
+
+body {
+    background-color:#f2f2f2;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    
+}
+
+.stage{
+    padding: 10px;
+}
+
+.leftspan{
+	margin-left: 0px !important;
+}
+
+.validationMessage {
+    background-color: #f8ced6 !important;
+    border: 1px solid #ba4551 !important;
+    text-align: center !important;
+    color: #ba4551 !important;
+    padding: 2px;
+}
+
+/* ------------------------------------------ Fonts ------------------------------------------ */
+
+h1 {
+    font-size:12px;
+    line-height: 7px;
+    font-weight:bold;
+    text-align:center;
+    color: #404041;
+}
+
+h2 {
+    font-size:14px;
+    line-height: 12px;
+    font-weight:bold;
+    text-align:right;
+    color: #404041;
+}
+
+h3 {
+    font-size:11px;
+    line-height: 12px;
+    text-align:right;
+    font-weight: normal;
+    color: #404041;
+}
+
+h4 {
+    font-size:14px;
+    line-height: 12px;
+    text-align:left;
+    font-weight: bold;
+    color: #404041;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d8d8d8;
+    text-transform: uppercase;
+}
+
+h5 {
+    font-size:16px;
+    text-align:center;
+    font-weight: bold;
+    color: #404041;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+
+p {
+	font-size:11px;
+    line-height: 16px;
+    text-align:left;
+    font-weight: normal;
+    color: #404041;
+}
+
+.indent{
+	margin-left: 20px;
+}
+/* ------------------------------------------ Landing Page ------------------------------------------ */
+
+.landinglogo {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #d8d8d8;
+    display:block;
+    margin: 20px auto;
+}
+
+.landingicon {
+    margin: 5px;
+}
+
+/* ------------------------------------------ Output Page ------------------------------------------ */
+.like-row
+{
+    border:1px solid #d8d8d8;
+    padding: 10px;
+}
+
+.div-member-item
+{
+    border:1px solid #d8d8d8;   
+    padding: 10px;
+    margin-top:5px;
+    min-height: 100px;
+}
+
+/* ------------------------------------------ Header ------------------------------------------ */
+
+.headerlogo {
+    margin: 10px 10px 10px 0px;
+    min-width: 200px;
+}
+
+/* ------------------------------------------ Accept Page ------------------------------------------ */
+
+.infoframe {
+    background: #fff;
+    padding: 20px;
+    text-align: center;
+    -webkit-border-radius: 5px; 
+    border-radius: 5px;
+    border: 1px solid #d8d8d8;
+    margin: 5px 0px 5px 0px;
+    min-width: 100px;
+}
+
+
+/* ------------------------------------------ Inputs & Labels ------------------------------------------ */
+
+
+select{
+	width: 100%;}
+
+input[type="text"], input[type="number"]{
+	-webkit-border-radius: 0px 5px 5px 0px;
+	-moz-border-radius: 0px 5px 5px 0px;
+        border-radius: 0px 5px 5px 0px;
+        height: 50px;
+        width: 100%;
+        padding: 0px 0px 0px 5px;
+}
+
+input[type="radio"], input[type="checkbox"]{
+	margin: 0px 5px 0px 0px;
+}
+
+select[disabled]{
+	background-color: #f1f1f1;
+	-webkit-appearance: none;
+	appearance: none;
+	-moz-appearance: none;
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAKElEQVQIW2NkQAPHjx//z4gsBhKwtLRkhAvCBECKwILIAmBBdAGQIADWnxNagHbKQAAAAABJRU5ErkJggg");
+	border: none;
+}
+
+
+
+.labelboth{
+border: 1px solid #d8d8d8;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 20px;
+        height: 52px;
+        vertical-align: center;
+        line-height: 33px;
+	
+}
+
+
+.labelleft{
+border: 1px solid #d8d8d8;
+	-webkit-border-radius: 5px 0px 0px 5px;
+	-moz-border-radius: 5px 0px 0px 5px;
+        border-radius: 5px 0px 0px 5px;
+        padding: 10px;
+        margin-bottom: 20px;
+        height: 52px;
+        vertical-align: center;
+        line-height: 33px;
+	
+}
+
+.labelright{
+border: 1px solid #d8d8d8;
+	-webkit-border-radius: 0px 5px 5px 0px;
+	-moz-border-radius: 0px 5px 5px 0px;
+        border-radius: 0px 5px 5px 0px;
+        padding: 10px 20px 10px 10px;
+        margin-bottom: 20px;
+        height: 52px;
+        margin-left: 0px !important;
+        position: relative;
+        left: -1px;
+        
+}
+
+.labelleftinput{
+	margin-left: 0px !important;
+	position: relative;
+        left: -1px;
+}
+
+.white{
+	background: #fff;
+}
+
+.xofx{
+	float: left;
+}
+
+.pagination{
+	float: right;
+}
+
+.pagination ul{
+	border-left: 0;
+	border-right: 0;
+	-webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	box-shadow: none !important;
+    background-color: white;
+}
+
+.pagination ul > li > a, .pagination ul > li > span {
+	background: none;
+	font-weight: bold;
+	color: #333;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+}
+/* ------------------------------------------ Buttons ------------------------------------------ */
+
+
+.button {
+    background: #fff;
+    padding: 10px;
+    text-align: center;
+    -webkit-border-radius: 5px; 
+    border-radius: 5px;
+    border: 1px solid #d8d8d8;
+    margin: 5px 0px 5px 0px;
+}
+
+.button a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.landing:active {
+    background: #d8d8d8;
+}
+
+.saved {
+	background: #d8d8d8;
+	border: 1px solid #bfbfbf;
+}
+
+.saved:active {
+	background: #bfbfbf;
+}
+
+.blue {
+	background: #3662ae;
+	border: none;
+	color: #fff;
+	font-weight: bold;
+}
+
+.blue:hover {
+	background: #1e468a;
+}
+
+.grey {
+	background: #939597;
+	border: none;
+	color: #fff;
+	font-weight: bold;
+}
+
+.grey:hover {
+	background: #6c6e6f;
+}
+
+/* ------------------------------------------ Footer ------------------------------------------ */
+
+.footer{
+z-index:100;
+  position:fixed;
+  bottom:0px;
+  background: #f2f2f2;
+  right: 0;
+  left: 0;
+
+    padding-left: 20px;
+    padding-right: 20px;
+
+  
+}
+
+.push{
+	height: 70px;
+	width: 100%;
+}
+
+
+/* ------------------------------------------ iPhone Optimize ------------------------------------------ */
+
+@media screen and (max-device-width: 320px)
+{
+
+body{
+margin: 5px;
+padding: 0px;
+
+}
+
+p{
+	font-size: 10px;
+}
+
+h1{
+	font-size: 10px;
+}
+
+h2{
+	font-size: 10px;
+}
+
+h3{
+	font-size: 9px;
+}
+
+h4{
+	font-size: 10px;
+	margin-top: 10px;
+}
+
+h5{
+	font-size: 10px;
+	padding: 0px;
+	text-align: left;
+	margin: 0px;
+}
+
+.infoframe{
+	padding: 10px;
+}
+
+.button{
+	font-size: 10px;
+	padding: 5px;
+}
+
+.footer{
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.labelleft{
+	font-size: 11px;
+	line-height: 15px;
+	margin: 0px;
+	height: 40px;
+	-webkit-border-radius: 5px 5px 0px 0px;
+	-moz-border-radius: 5px 5px 0px 0px;
+        border-radius: 5px 5px 0px 0px;
+
+}
+
+.labelboth{
+font-size: 10px;
+line-height: 33px;
+
+}
+
+.labelright{
+	padding: 5px;
+	-webkit-border-radius: 0px 0px 5px 5px;
+	-moz-border-radius: 0px 0px 5px 5px;
+        border-radius: 0px 0px 5px 5px;
+        position: relative;
+        left:0px;
+        top: -1px;
+        	height: 40px;
+        	font-size: 11px;
+}
+
+td{
+	font-size: 11px;
+}
+
+th{
+	font-size: 11px;
+}
+
+.row-fluid .span6{
+	width: 100%;
+	margin-left: 0px;
+}
+
+.spanner{
+	width: 48% !important;
+	
+}
+
+input[type="text"]{
+	-webkit-border-radius: 0px 0px 5px 5px;
+	-moz-border-radius: 0px 0px 5px 5px;
+        border-radius: 0px 0px 5px 5px;
+        position: relative;
+        left: 1px;
+        top: -1px; 
+        width: 97.8%;
+
+}
+
+.headerlogo {
+    margin: 10px 10px 10px 0px;
+    min-width: 100px;
+    width: 100px;
+}
+    
+.push {
+    height: 120px !important;
+}
+
+.dataspan{
+    width: 100% !important;
+    margin-left: 10px !important;
+}
+
+}

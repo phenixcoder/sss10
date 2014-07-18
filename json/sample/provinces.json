@@ -1,0 +1,22 @@
+[
+	{
+		"ItemID": "1",
+		"ProvCode": "AB",
+		"Province": "AB - Alberta"
+	},
+	{
+		"ItemID": "2",
+		"ProvCode": "BC",
+		"Province": "BC - British Columbia"
+	},
+	{
+		"ItemID": "3",
+		"ProvCode": "MB",
+		"Province": "MB - Manitoba"
+	},
+	{
+		"ItemID": "4",
+		"ProvCode": "NB",
+		"Province": "NB - New Brunswick"
+	}
+]
