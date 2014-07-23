@@ -1,7 +1,7 @@
 //Call startup function onDeviceReady when device is ready
 $(document).ready(function () {
-    document.addEventListener("deviceready", onDeviceReady, false);
-    //onDeviceReady()
+    //document.addEventListener("deviceready", onDeviceReady, false);
+    onDeviceReady()
 });
 
 // call the other functions used on screen 2

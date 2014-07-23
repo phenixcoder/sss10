@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    document.addEventListener("deviceready", onDeviceReady, false);
-    //onDeviceReady();
+    //document.addEventListener("deviceready", onDeviceReady, false);
+    onDeviceReady();
 });
 
 function onDeviceReady()
